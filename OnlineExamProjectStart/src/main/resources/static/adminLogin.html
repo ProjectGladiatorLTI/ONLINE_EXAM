@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> Search</title>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ <script>
+$(function(){
+	$("#loginForm").submit(function(evt){
+		evt.preventDefault();
+		//var obj = {
+				
+		var email = $("#email").val();
+				//password : $("#password").val()
+		
+		var url = '/adminLogin?email='+email//+'&password='+password;
+					
+		$.ajax({
+			url:url,
+			method:'GET',
+			dataType : 'json',//return type 
+			//data : JSON.stringify(obj),
+			//contentType : 'application/json',
+		
+			success:function(response){
+				//alert(JSON.stringify(response));
+				window.location.replace("upload.html");
+				
+		}
+	})
+})
+})
+
+</script>
+
+
+</head>
+<body>
+<form id="loginForm">
+
+Enter Email Id: <input  type="email" id="email" /> <br>
+Enter Password :<input type="password" id="password"/><br>
+<input type="submit"/>
+
+
+</form>
+</body>
+</html>
