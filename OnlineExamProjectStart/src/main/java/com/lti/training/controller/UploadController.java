@@ -1,4 +1,4 @@
-package com.lti.training.controller;
+/*package com.lti.training.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,3 +40,4 @@ public class UploadController {
 		}
 
 }
+*/

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(function(){
+	$("#submitForm").submit(function(evt){
+		evt.preventDefault();
+		//var obj = {
+		var url='/getSubject';
+		$.ajax({
+			url:url,
+			method:'GET',
+			dataType : 'json',
+		
+			success:function(response){
+				
+				var i=0;
+				for(i=0;i<response.length;i++){
+ 				//alert(response);
+ 				var r=$('<input/>').attr({
+ 			        type: "submit",
+ 			        id: response[i].subjectname,
+ 			        value: response[i].subjectname,
+ 			        onclick:"upload.html"
+ 			    });
+				$("#sub").append(r)
+				}
+				/*var b = $("<p>").text(" subject " +response[0].subjectname);
+				var c = $("<p>").text(" subject " +response[1].subjectname);
+				$("#p1").html("<p>List of Subjects :</p>").append(b).append(c);*/
+				
+		}
+	})
+})
+})
+</script>
+</head>
+<body>
+<h1>Select exam here :</h1>
+<form id="submitForm">
+<input type="submit" />
+</form>
+<div id="sub">
+</div>
+<p id="p1">
+</p>
+</body>
+</html>

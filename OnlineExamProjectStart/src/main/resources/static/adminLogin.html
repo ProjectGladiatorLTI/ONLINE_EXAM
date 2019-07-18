@@ -12,20 +12,26 @@ $(function(){
 		//var obj = {
 				
 		var email = $("#email").val();
-				//password : $("#password").val()
+		var password = $("#password").val();
 		
 		var url = '/adminLogin?email='+email//+'&password='+password;
 					
 		$.ajax({
 			url:url,
-			method:'GET',
-			dataType : 'json',//return type 
-			//data : JSON.stringify(obj),
-			//contentType : 'application/json',
+			method:'POST',
+			dataType : 'json',
 		
 			success:function(response){
-				//alert(JSON.stringify(response));
-				window.location.replace("upload.html");
+				
+				var email=response.email;
+				//sessionStorage['response'] = response;
+				sessionStorage['response'] = JSON.stringify(response);
+				
+				if(response.password==password)
+					window.location.href = "upload.html";
+				else
+					alert("Wrong password !!");
+				
 				
 		}
 	})

@@ -2,14 +2,42 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Upload question file</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+/*function abc(){
+var response=JSON.parse(sessionStorage['response']);
+alert(response.email);
+//alert(response);
+}*/
+$(function(){
+	$("#frm").submit(function(evt){
+		evt.preventDefault();
+		
+		formdata = new FormData();
+		formdata.append("file", $("#file").get(0).files[0]);
+		$.ajax({
+			url         : '/uploadDocument', 
+			method      : 'POST', 
+			data 	    : formdata,
+			processData: false,
+			contentType : false,
+			success: function(response){
+				
+				alert(JSON.stringify(response));
+			}
+				
+		})
+	})
+})
 
+</script>
 </head>
-<body>
-<h1>Upload the question file here please</h1>
-<form action="readDocument" >
+<body > 
+<!-- <h1>Upload the question file here please</h1>-->
+<form id="frm">
 Upload File here :<input type="file" id="file"/><br><br>
-<input type="submit" value="ADD FILE"></input>
+<input type="submit" ></input>
 </form>
 </body>
 </html>

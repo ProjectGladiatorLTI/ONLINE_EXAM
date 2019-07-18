@@ -16,11 +16,11 @@ public class adminLoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	@RequestMapping(value="/adminLogin",method=RequestMethod.GET)
+	@RequestMapping(value="/adminLogin",method=RequestMethod.POST)
 	public Admin fetch(@RequestParam(name= "email") String email) {
 		
 		System.out.println("Controller is called");
-
+		
 		
 		return loginService.showSearch(email);
 
