@@ -11,6 +11,10 @@ alert(response.email);
 //alert(response);
 }*/
 $(function(){
+	var response=JSON.parse(sessionStorage['response']);
+	if(response==null){
+		window.location.href = "adminLogin.html";
+	
 	$("#frm").submit(function(evt){
 		evt.preventDefault();
 		

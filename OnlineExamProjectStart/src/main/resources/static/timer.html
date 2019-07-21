@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="javascript">
+var Timer;
+var TotalSeconds;
+
+function CreateTimer(TimerID, Time) 
+{
+    Timer = document.getElementById(TimerID);
+    TotalSeconds = Time;
+    UpdateTimer()
+    window.setTimeout("Tick()", 1000);
+}
+
+function Tick() 
+{
+    TotalSeconds -= 1;
+    if(TotalSeconds ==-1)
+      {
+    alert("Time Up");
+    // Show alert Plus redirect any other page
+      }
+   else
+     {
+    UpdateTimer()
+    window.setTimeout("Tick()", 1000);
+     }
+}
+
+function UpdateTimer() {
+    Timer.innerHTML = TotalSeconds;
+}
+</script>
+<style >
+.topcorner{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+  }
+</style>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="leftcorner"><a href="logout.html">Logout</a></div>
+<div class="topcorner"  id='timer' >
+ <div class="item4">timer</div>
+ </div>
+<script type="text/javascript">window.onload = CreateTimer("timer", 120);</script>
+
+</body>
+</html>
